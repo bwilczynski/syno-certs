@@ -20,7 +20,7 @@ It is designed for DSM 7+ and uses Synology's API to update the system certifica
 1. **Run the install script as root:**
 
    ```bash
-   wget -O - https://raw.githubusercontent.com/bwilczynski/syno-certs/main/install.sh | sudo bash
+   wget -qO - https://raw.githubusercontent.com/bwilczynski/syno-certs/main/install.sh | sudo bash
    ```
 
    The script will:
@@ -41,7 +41,7 @@ It is designed for DSM 7+ and uses Synology's API to update the system certifica
 To manually issue or renew certificates and update Synology, run as root:
 
 ```bash
-DOMAIN="your.domain.com,*.your.domain.com" /usr/local/bin/update_syno_cert.sh
+/usr/local/bin/update_syno_cert.sh
 ```
 
 > The script will only renew and import certificates if they are close to expiry or missing.
@@ -57,7 +57,7 @@ To automate certificate renewal:
 3. **Set user to `root`.**
 4. **Script example:**
    ```
-   DOMAIN="your.domain.com,*.your.domain.com" /usr/local/bin/update_syno_cert.sh
+   /usr/local/bin/update_syno_cert.sh
    ```
 5. **Set the schedule** (e.g. weekly).
 

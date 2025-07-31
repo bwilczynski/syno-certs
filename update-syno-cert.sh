@@ -8,12 +8,6 @@ if [ "$(id -u)" -ne 0 ]; then
   exit 1
 fi
 
-# DOMAIN must be set externally (env or .env)
-if [ -z "${DOMAIN:-}" ]; then
-  echo "Usage: DOMAIN=your.domain.com $0"
-  exit 1
-fi
-
 # Load environment variables from .env files if present
 ENV_DIR="/etc/local/syno-certs"
 [ -f "$ENV_DIR/default.env" ] && source "$ENV_DIR/default.env"

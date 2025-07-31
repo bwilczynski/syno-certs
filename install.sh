@@ -14,14 +14,11 @@ echo "   Synology Let's Encrypt Installer   "
 echo "======================================"
 echo
 
-# Prompt for domain(s)
-read -rp "Enter your domain(s) (comma separated, e.g. example.com,*.example.com): " DOMAIN_INPUT
-read -rp "Enter your email address: " EMAIL_INPUT
-
-# Prompt for AWS credentials
-read -rp "Enter your AWS_ACCESS_KEY_ID: " AWS_ACCESS_KEY_ID
-read -rp "Enter your AWS_SECRET_ACCESS_KEY: " AWS_SECRET_ACCESS_KEY
-read -rp "Enter your AWS_REGION (e.g. eu-west-1): " AWS_REGION
+DOMAIN="example.com,*.example.com"
+EMAIL="admin@example.com"
+AWS_ACCESS_KEY_ID="YOUR_AWS_ACCESS_KEY_ID"
+AWS_SECRET_ACCESS_KEY="YOUR_AWS_SECRET_ACCESS_KEY"
+AWS_REGION="eu-west-1"
 
 # Create config directory
 ENV_DIR="/etc/local/syno-certs"
@@ -30,8 +27,8 @@ chmod 700 "$ENV_DIR"
 
 # Write .env file
 tee "$ENV_DIR/default.env" >/dev/null <<EOF
-DOMAIN="$DOMAIN_INPUT"
-EMAIL="$EMAIL_INPUT"
+DOMAIN="$DOMAIN"
+EMAIL="$EMAIL"
 DNS_PROVIDER="route53"
 
 AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
@@ -54,7 +51,7 @@ rm -rf "$TMP_DIR"
 echo "lego installed to $LEGO_BIN"
 
 # Download update_syno_cert.sh from GitHub
-UPDATE_SCRIPT_URL="https://raw.githubusercontent.com/bwilczynski/syno-certs/main/update_syno_cert.sh"
+UPDATE_SCRIPT_URL="https://raw.githubusercontent.com/bwilczynski/syno-certs/main/update-syno-cert.sh"
 UPDATE_SCRIPT_BIN="/usr/local/bin/update_syno_cert.sh"
 echo "Downloading update_syno_cert.sh from $UPDATE_SCRIPT_URL ..."
 wget -qO "$UPDATE_SCRIPT_BIN" "$UPDATE_SCRIPT_URL"
