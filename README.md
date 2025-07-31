@@ -41,7 +41,7 @@ It is designed for DSM 7+ and uses Synology's API to update the system certifica
 To manually issue or renew certificates and update Synology, run as root:
 
 ```bash
-/usr/local/bin/update_syno_cert.sh
+/usr/local/bin/update-syno-cert.sh
 ```
 
 > The script will only renew and import certificates if they are close to expiry or missing.
@@ -57,7 +57,7 @@ To automate certificate renewal:
 3. **Set user to `root`.**
 4. **Script example:**
    ```
-   /usr/local/bin/update_syno_cert.sh
+   /usr/local/bin/update-syno-cert.sh
    ```
 5. **Set the schedule** (e.g. weekly).
 

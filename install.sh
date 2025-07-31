@@ -50,13 +50,13 @@ chmod +x "$LEGO_BIN"
 rm -rf "$TMP_DIR"
 echo "lego installed to $LEGO_BIN"
 
-# Download update_syno_cert.sh from GitHub
+# Download update-syno-cert.sh from GitHub
 UPDATE_SCRIPT_URL="https://raw.githubusercontent.com/bwilczynski/syno-certs/main/update-syno-cert.sh"
-UPDATE_SCRIPT_BIN="/usr/local/bin/update_syno_cert.sh"
-echo "Downloading update_syno_cert.sh from $UPDATE_SCRIPT_URL ..."
+UPDATE_SCRIPT_BIN="/usr/local/bin/update-syno-cert.sh"
+echo "Downloading update-syno-cert.sh from $UPDATE_SCRIPT_URL ..."
 wget -qO "$UPDATE_SCRIPT_BIN" "$UPDATE_SCRIPT_URL"
 chmod +x "$UPDATE_SCRIPT_BIN"
-echo "update_syno_cert.sh installed to $UPDATE_SCRIPT_BIN"
+echo "update-syno-cert.sh installed to $UPDATE_SCRIPT_BIN"
 
 echo
 echo "======================================"
@@ -71,6 +71,6 @@ echo
 echo "To automate certificate renewal, configure a scheduled task in DSM:"
 echo "  Control Panel > Task Scheduler > Create > Scheduled Task > User-defined script"
 echo "and use:"
-echo "  DOMAIN=\"your.domain.com\" /usr/local/bin/update_syno_cert.sh"
+echo "  /usr/local/bin/update-syno-cert.sh"
 echo
 echo "Setup complete!"
